@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Gerador de Senhas</title>
+</head>
+<body>
+    <header>
+        <h1>🔐 Gerador Seguro</h1>
+    </header>
+    <section class="container">  
+        <form action="resultado.php" method="post">
+            
+            <div class="form-group">
+                <label for="length">Quantidade de Caracteres:</label>
+                <div class="range-control">
+                    <input type="number" name="length" id="length" min="4" max="64" value="12" required>
+                    <input type="range" id="lengthRange" min="4" max="64" value="12">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label style="margin-bottom: 15px; display:block;">Incluir:</label>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" name="letters" id="letters" value="1" checked>
+                    <label for="letters">Letras (A-Z, a-z)</label>
+                </div>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" name="numbers" id="numbers" value="1" checked>
+                    <label for="numbers">Números (0-9)</label>
+                </div>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" name="symbols" id="symbols" value="1">
+                    <label for="symbols">Símbolos (!@#$%)</label>
+                </div>
+            </div>
+            
+            <input type="submit" value="Gerar Senha Agora" class="btn-submit">
+        </form>
+    </section>
+
+    <script>
+        const numberInput = document.getElementById('length');
+        const rangeInput = document.getElementById('lengthRange');
+
+    
+        rangeInput.addEventListener('input', function() {
+            numberInput.value = this.value;
+        });
+
+        
+        numberInput.addEventListener('input', function() {
+            rangeInput.value = this.value;
+        });
+    </script>
+</body>
+</html>
